@@ -8,7 +8,8 @@ const expressLayout = require("express-ejs-layouts")
 const PORT= process.env.PORT || 3000
 
 
-
+//assests
+app.use(express.static("public"))
 
 app.get("/" , (req , res)=>{
     // res.send karte hi direct browser par so karne lagra hai par res.render karne par html code ko render karna padta hai kisi dusre file se
