@@ -11,16 +11,26 @@ const PORT= process.env.PORT || 3000
 //assests
 app.use(express.static("public"))
 
+
+
+// set Template engine
+app.use(expressLayout)
+app.set('views', path.join(__dirname,'/resources/views'))
+app.set("view engine", "ejs")
+
+
 app.get("/" , (req , res)=>{
     // res.send karte hi direct browser par so karne lagra hai par res.render karne par html code ko render karna padta hai kisi dusre file se
     // res.send("Hello Akash Kumar")
     res.render("home")
 })
 
-// set Template engine
-app.use(expressLayout)
-app.set('views', path.join(__dirname,'/resources/views'))
-app.set("view engine", "ejs")
+app.get("/cart", (req ,res)=>{
+    res.render("customers/cart")
+})
+
+
+
 
 app.listen(PORT , () =>{
     console.log("Listening on port 3000")
